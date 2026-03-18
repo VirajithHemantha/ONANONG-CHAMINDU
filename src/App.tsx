@@ -273,8 +273,9 @@ export default function App() {
               transition={{ duration: 2, delay: 0.5, ease: "easeOut" }}
               className="absolute top-12 md:top-24 left-0 right-0 text-center z-10 pointer-events-none"
             >
-              <h1 className="serif text-4xl md:text-6xl text-sage/80 font-light tracking-[0.2em] drop-shadow-xl">Hashimi & Zerlin</h1>
-              <p className="mt-4 text-[10px] md:text-xs uppercase tracking-[0.6em] text-sage/60 font-bold">23 May 2026</p>
+              <h1 className="serif text-4xl md:text-6xl text-sage/80 font-light tracking-[0.2em] drop-shadow-xl">Hashimi <span className="opacity-30">&</span> <span className="blur-sm select-none opacity-40" style={{filter:"blur(6px)"}}>Zerlin</span></h1>
+              <p className="mt-2 text-[9px] md:text-xs uppercase tracking-[0.5em] text-sage/50 font-bold">Open to reveal ✦</p>
+              <p className="mt-1 text-[10px] md:text-xs uppercase tracking-[0.6em] text-sage/60 font-bold">23 May 2026</p>
             </motion.div>
 
             {/* Slow Spinning Elegant Ambient Rings */}
@@ -506,7 +507,7 @@ export default function App() {
         initial={false}
         animate={isOpened ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
         transition={{ duration: 1.2, delay: 0.5, ease: "easeOut" }}
-        className="max-w-[1600px] mx-auto px-6 py-16 md:px-12 md:py-24 flex flex-col gap-16 relative z-10 min-h-screen"
+        className="max-w-[1600px] mx-auto px-4 py-12 md:px-12 md:py-24 flex flex-col gap-10 md:gap-16 relative z-10 min-h-screen"
       >
 
         {/* Header Section */}
@@ -530,27 +531,27 @@ export default function App() {
           </motion.div>
 
           <h1 className="flex flex-col items-center px-4">
-            <span className="serif italic text-4xl md:text-[10rem] text-sage font-light leading-tight drop-shadow-sm mb-2 md:mb-6">
+            <span className="serif italic text-3xl sm:text-5xl md:text-[8rem] text-sage font-light leading-tight drop-shadow-sm mb-2 md:mb-6">
               You're Invited!
             </span>
-            <span className="serif text-lg md:text-4xl text-sage/40 tracking-[0.2em] md:tracking-[0.3em] uppercase font-light">to the wedding of</span>
+            <span className="serif text-base md:text-4xl text-sage/40 tracking-[0.2em] md:tracking-[0.3em] uppercase font-light">to the wedding of</span>
           </h1>
 
-          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-16 mt-8 relative">
+          <div className="flex flex-col md:flex-row items-center justify-center gap-2 md:gap-16 mt-6 md:mt-8 relative">
             {/* Subtle Glow Backdrop */}
             <div className="absolute inset-x-0 top-1/2 -translate-y-1/2 h-32 bg-sage/5 blur-3xl rounded-full" />
 
             <motion.h2
               whileHover={{ scale: 1.05 }}
-              className="script text-7xl md:text-9xl text-sage drop-shadow-lg relative z-10"
+              className="script text-5xl sm:text-7xl md:text-9xl text-sage drop-shadow-lg relative z-10"
             >
               Hashimi
             </motion.h2>
 
-            <div className="relative my-4 md:my-0 flex items-center justify-center">
+            <div className="relative my-2 md:my-0 flex items-center justify-center">
               <div className="h-px w-12 md:w-24 bg-sage/20 hidden md:block" />
               <div className="relative mx-4">
-                <Heart className="text-sage/40 w-8 h-8 md:w-10 md:h-10 animate-pulse" fill="currentColor" />
+                <Heart className="text-sage/40 w-6 h-6 md:w-10 md:h-10 animate-pulse" fill="currentColor" />
                 <motion.div
                   animate={{ scale: [1, 1.5, 1], opacity: [0, 1, 0] }}
                   transition={{ repeat: Infinity, duration: 2 }}
@@ -562,7 +563,7 @@ export default function App() {
 
             <motion.h2
               whileHover={{ scale: 1.05 }}
-              className="script text-7xl md:text-9xl text-sage drop-shadow-lg relative z-10"
+              className="script text-5xl sm:text-7xl md:text-9xl text-sage drop-shadow-lg relative z-10"
             >
               Zerlin
             </motion.h2>
@@ -776,7 +777,7 @@ export default function App() {
         </div>
 
         {/* Bento Grid Layout - Flipped Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-4 md:gap-10 relative">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 md:gap-10 relative">
 
           {/* Details Flip Card */}
           <motion.div
@@ -814,26 +815,29 @@ export default function App() {
               }
               back={
                 <>
-                  <h4 className="serif text-xl md:text-3xl text-sage mb-4 md:mb-6">Ceremony Details</h4>
-                  <div className="space-y-1 md:space-y-4 text-[10px] md:text-sm text-zinc-600 w-full px-1 md:px-4">
+                  <h4 className="serif text-xl md:text-3xl text-sage mb-3 md:mb-6">Ceremony Details</h4>
+                  <div className="space-y-1.5 md:space-y-4 text-[10px] md:text-sm text-zinc-600 w-full px-1 md:px-4">
                     <div className="flex justify-between border-b border-sage/20 pb-1 md:pb-2">
                       <span className="font-bold tracking-widest uppercase text-[8px] md:text-xs">Dress Code</span>
-                      <span className="serif italic text-[10px] md:text-sm">Formal / Earth</span>
+                      <span className="serif italic text-[10px] md:text-sm">Formal Attire</span>
                     </div>
                     <div className="flex justify-between border-b border-sage/20 pb-1 md:pb-2">
                       <span className="font-bold tracking-widest uppercase text-[8px] md:text-xs">Gifts</span>
                       <span className="serif italic text-[10px] md:text-sm">Monetary</span>
                     </div>
                     <div className="flex justify-between border-b border-sage/20 pb-1 md:pb-2">
-                      <span className="font-bold tracking-widest uppercase text-[8px] md:text-xs">Adults Only</span>
-                      <span className="serif italic text-[10px] md:text-sm">Strictly 18+</span>
+                      <span className="font-bold tracking-widest uppercase text-[8px] md:text-xs">Photography</span>
+                      <span className="serif italic text-[10px] md:text-sm">Welcome</span>
+                    </div>
+                    <div className="flex justify-between border-b border-sage/20 pb-1 md:pb-2">
+                      <span className="font-bold tracking-widest uppercase text-[8px] md:text-xs">Language</span>
+                      <span className="serif italic text-[10px] md:text-sm">Sinhala / English</span>
+                    </div>
+                    <div className="flex justify-between pb-1 md:pb-2">
+                      <span className="font-bold tracking-widest uppercase text-[8px] md:text-xs">Country</span>
+                      <span className="serif italic text-[10px] md:text-sm">🇱🇰 Sri Lanka</span>
                     </div>
                   </div>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="mt-4 md:mt-8 text-[8px] md:text-xs uppercase tracking-[0.2em] font-bold text-sage underline underline-offset-4"
-                  >Close Details</motion.button>
                 </>
               }
             />
