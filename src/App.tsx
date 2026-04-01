@@ -700,9 +700,9 @@ export default function App() {
               {/* premium envelope material */}
               <div className="absolute inset-0 bg-gradient-to-b from-sage via-sage/90 to-rust" />
               <div className="absolute inset-0 opacity-25 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-br from-white/16 via-transparent to-black/30 pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white/16 via-transparent to-umber/25 pointer-events-none" />
               <div className="absolute inset-[10px] rounded-[1.8rem] border border-white/18 pointer-events-none" />
-              <div className="absolute inset-[16px] rounded-[1.55rem] border border-black/10 pointer-events-none" />
+              <div className="absolute inset-[16px] rounded-[1.55rem] border border-umber/10 pointer-events-none" />
               {!reduceEffects && (
                 <motion.div
                   animate={{ opacity: [0.18, 0.32, 0.18], scale: [1, 1.04, 1] }}
@@ -719,7 +719,7 @@ export default function App() {
               </div>
 
               <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-white/5 clip-path-envelope-bottom pointer-events-none rounded-b-[2rem]" />
-              <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-black/35 via-black/10 to-transparent clip-path-envelope-bottom pointer-events-none rounded-b-[2rem]" />
+              <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-umber/35 via-umber/10 to-transparent clip-path-envelope-bottom pointer-events-none rounded-b-[2rem]" />
 
               <motion.div
                 initial={{ rotateX: 0 }}
@@ -730,7 +730,7 @@ export default function App() {
               >
                 <div className="absolute inset-0 bg-gradient-to-b from-sage to-rust" />
                 <div className="absolute inset-0 opacity-22 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white/18 via-transparent to-black/25" />
+                <div className="absolute inset-0 bg-gradient-to-b from-white/18 via-transparent to-umber/25" />
                 <div className="absolute top-0 left-0 right-0 h-px bg-white/25" />
               </motion.div>
 
@@ -748,7 +748,7 @@ export default function App() {
                     className="flex flex-col items-center gap-4 mt-8 md:mt-12 group"
                   >
                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-full shadow-[0_18px_50px_-18px_rgba(0,0,0,0.65)] flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500 bg-paper/10 border border-white/30 p-1.5 backdrop-blur-md">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/14 via-transparent to-black/25 pointer-events-none" />
+                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/14 via-transparent to-umber/25 pointer-events-none" />
                       <div className="w-full h-full rounded-full bg-gradient-to-br from-sage to-rust shadow-[inset_0_-8px_18px_rgba(0,0,0,0.28),0_8px_18px_rgba(0,0,0,0.22)] flex items-center justify-center border border-white/14 relative overflow-hidden">
                         <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-20 h-12 bg-paper/25 blur-2xl rounded-full" />
                         <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.35)_0%,transparent_55%)]" />
@@ -889,9 +889,9 @@ export default function App() {
 
               {/* envelope body back */}
               <div className="absolute bottom-0 left-0 right-0 h-[64%] sm:h-[66%] md:h-[68%] rounded-b-[2.5rem] overflow-hidden z-10 shadow-[0_24px_70px_-12px_rgba(61,34,21,0.55)]">
-                <div className="absolute inset-0 bg-gradient-to-b from-umber via-umber/90 to-black/80" />
+                <div className="absolute inset-0 bg-gradient-to-b from-umber via-rust/35 to-sienna/55" />
                 <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')]" />
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-black/25" />
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-umber/25" />
                 <div className="absolute inset-x-0 top-0 h-[2px] bg-white/8" />
                 <div className="absolute inset-x-10 top-3 h-px bg-sand/15" />
                 <div className="absolute bottom-0 left-0 right-0 h-px bg-white/10" />
@@ -913,7 +913,7 @@ export default function App() {
                 }}
               >
                 <div
-                  className="absolute inset-0 bg-gradient-to-br from-black/80 via-umber/95 to-black/80"
+                  className="absolute inset-0 bg-gradient-to-br from-umber/95 via-rust/70 to-sienna/75"
                   style={{
                     clipPath: "polygon(0 100%, 50% 0, 100% 100%)",
                   }}
@@ -932,7 +932,7 @@ export default function App() {
                   <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-white/0 to-transparent" />
                 </div>
 
-                <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-black/35 to-transparent" />
+                <div className="absolute bottom-0 left-0 right-0 h-4 bg-gradient-to-t from-umber/35 to-transparent" />
               </div>
 
               {/* invitation card */}
@@ -949,7 +949,7 @@ export default function App() {
                   top: "auto",
                 }}
               >
-                <div className="absolute -bottom-4 left-6 right-6 h-10 bg-black/20 blur-xl rounded-full" />
+                <div className="absolute -bottom-4 left-6 right-6 h-10 bg-umber/20 blur-xl rounded-full" />
 
                 <div className="relative bg-paper rounded-[1.6rem] md:rounded-[2rem] shadow-[0_-20px_60px_rgba(0,0,0,0.16),0_10px_30px_rgba(0,0,0,0.08)] border border-sand/35 overflow-hidden">
                   <div className="absolute inset-0 pointer-events-none">
@@ -1069,7 +1069,7 @@ export default function App() {
               {/* front flaps */}
               <div className="absolute bottom-0 left-0 right-0 h-[64%] sm:h-[66%] md:h-[68%] z-30 rounded-b-[2.5rem] overflow-hidden pointer-events-none">
                 <div
-                  className="absolute inset-0 bg-gradient-to-br from-umber to-black/85"
+                  className="absolute inset-0 bg-gradient-to-br from-umber via-rust/85 to-sienna/80"
                   style={{
                     clipPath: "polygon(0 0, 50% 55%, 0 100%)",
                   }}
@@ -1079,7 +1079,7 @@ export default function App() {
                 </div>
 
                 <div
-                  className="absolute inset-0 bg-gradient-to-bl from-umber to-black/85"
+                  className="absolute inset-0 bg-gradient-to-bl from-umber via-rust/85 to-sienna/80"
                   style={{
                     clipPath: "polygon(100% 0, 50% 55%, 100% 100%)",
                   }}
@@ -1089,13 +1089,13 @@ export default function App() {
                 </div>
 
                 <div
-                  className="absolute inset-0 bg-black/30"
+                  className="absolute inset-0 bg-umber/25"
                   style={{
                     clipPath: "polygon(45% 50%, 50% 55%, 55% 50%, 50% 48%)",
                   }}
                 />
 
-                <div className="absolute top-0 left-0 right-0 h-7 bg-gradient-to-b from-black/25 to-transparent" />
+                <div className="absolute top-0 left-0 right-0 h-7 bg-gradient-to-b from-umber/25 to-transparent" />
               </div>
             </motion.div>
           )}
