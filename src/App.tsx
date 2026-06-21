@@ -698,72 +698,105 @@ export default function App() {
               className="relative w-full max-w-2xl h-80 md:h-[450px] rounded-[2.25rem] shadow-[0_34px_80px_-22px_rgba(0,0,0,0.55)] flex flex-col items-center justify-center z-10 overflow-hidden"
             >
               {/* premium envelope material */}
-              <div className="absolute inset-0 bg-gradient-to-b from-sage via-sage/90 to-rust" />
-              <div className="absolute inset-0 opacity-25 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] pointer-events-none" />
-              <div className="absolute inset-0 bg-gradient-to-br from-white/16 via-transparent to-umber/25 pointer-events-none" />
-              <div className="absolute inset-[10px] rounded-[1.8rem] border border-white/18 pointer-events-none" />
-              <div className="absolute inset-[16px] rounded-[1.55rem] border border-umber/10 pointer-events-none" />
-              {!reduceEffects && (
-                <motion.div
-                  animate={{ opacity: [0.18, 0.32, 0.18], scale: [1, 1.04, 1] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                  className="absolute -top-20 left-1/2 -translate-x-1/2 w-[520px] h-[260px] bg-paper/15 blur-3xl rounded-full pointer-events-none"
-                />
-              )}
+              <div className="absolute inset-0 bg-[#FDFBF7]" />
+              <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] pointer-events-none" />
+              <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-black/[0.02] pointer-events-none" />
+
+              {/* Outer stroke/shadow for envelope depth */}
+              <div className="absolute inset-0 shadow-[inset_0_0_15px_rgba(0,0,0,0.05)] pointer-events-none rounded-[2.25rem]" />
 
               <div className="absolute inset-0 flex flex-col items-center justify-center space-y-4 md:space-y-6">
-                <span className="serif text-white/50 text-lg md:text-3xl tracking-[0.4em] md:tracking-[0.6em] uppercase text-center px-4">
+                <span className="serif text-zinc-400 text-lg md:text-3xl tracking-[0.4em] md:tracking-[0.6em] uppercase text-center px-4">
                   The Invitation
                 </span>
-                <div className="w-10 md:w-16 h-px bg-white/20" />
+                <div className="w-10 md:w-16 h-px bg-zinc-200" />
               </div>
 
-              <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-white/5 clip-path-envelope-bottom pointer-events-none rounded-b-[2rem]" />
-              <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-umber/35 via-umber/10 to-transparent clip-path-envelope-bottom pointer-events-none rounded-b-[2rem]" />
+              {/* Envelope Body Construction */}
+              <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-[#F9F7F2] clip-path-envelope-bottom pointer-events-none rounded-b-[2.25rem] shadow-sm" />
+              <div className="absolute bottom-0 left-0 right-0 h-[65%] bg-gradient-to-t from-black/[0.03] via-transparent to-transparent clip-path-envelope-bottom pointer-events-none rounded-b-[2.25rem]" />
 
               <motion.div
                 initial={{ rotateX: 0 }}
-                animate={{ rotateX: isFlapOpen ? 180 : 0, opacity: isFlapOpen ? 0 : 1 }}
-                transition={{ duration: 1, ease: [0.3, 0.1, 0.2, 1] }}
-                style={{ transformOrigin: "top", backfaceVisibility: "hidden" }}
-                className="absolute top-0 left-0 right-0 h-[55%] drop-shadow-2xl z-20 rounded-t-[2.25rem] clip-path-envelope flex flex-col items-center justify-start overflow-hidden pt-8 pointer-events-none"
+                animate={{ rotateX: isFlapOpen ? 180 : 0 }}
+                transition={{ duration: 1.2, ease: [0.4, 0, 0.2, 1] }}
+                style={{ transformOrigin: "top", transformStyle: "preserve-3d" }}
+                className="absolute top-0 left-0 right-0 h-[58%] z-20 drop-shadow-[0_8px_15px_rgba(0,0,0,0.1)] pointer-events-none"
               >
-                <div className="absolute inset-0 bg-gradient-to-b from-sage to-rust" />
-                <div className="absolute inset-0 opacity-22 bg-[url('https://www.transparenttextures.com/patterns/paper-fibers.png')] pointer-events-none" />
-                <div className="absolute inset-0 bg-gradient-to-b from-white/18 via-transparent to-umber/25" />
-                <div className="absolute top-0 left-0 right-0 h-px bg-white/25" />
+                {/* Front of Flap */}
+                <div
+                  className="absolute inset-0 clip-path-envelope backface-hidden"
+                  style={{ backfaceVisibility: "hidden" }}
+                >
+                  <div className="absolute inset-0 bg-[#FDFBF7]" />
+                  <div className="absolute inset-0 bg-gradient-to-b from-white via-transparent to-black/[0.05]" />
+
+                  {/* Gold Monogram on the tip of the flap */}
+                  <div className="absolute bottom-6 left-1/2 -translate-x-1/2 w-28 h-28 md:w-36 md:h-36 flex items-center justify-center">
+                    <motion.div
+                      animate={{
+                        filter: ["drop-shadow(0 0 0px rgba(212,175,55,0))", "drop-shadow(0 0 10px rgba(212,175,55,0.4))", "drop-shadow(0 0 0px rgba(212,175,55,0))"]
+                      }}
+                      transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+                      className="w-full h-full flex items-center justify-center"
+                    >
+                      <svg viewBox="0 0 100 100" className="w-full h-full">
+                        <defs>
+                          <linearGradient id="gold-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stopColor="#D4AF37" />
+                            <stop offset="25%" stopColor="#F5D76E" />
+                            <stop offset="50%" stopColor="#B8860B" />
+                            <stop offset="75%" stopColor="#F5D76E" />
+                            <stop offset="100%" stopColor="#D4AF37" />
+                          </linearGradient>
+                        </defs>
+                        <text
+                          x="50%"
+                          y="60%"
+                          textAnchor="middle"
+                          className="script text-[45px] font-bold fill-[url(#gold-grad)]"
+                        >
+                          HZ
+                        </text>
+                        {/* A thin shadow text to make it pop */}
+                        <text
+                          x="50.5%"
+                          y="60.5%"
+                          textAnchor="middle"
+                          className="script text-[45px] font-bold fill-black/10 select-none pointer-events-none"
+                        >
+                          HZ
+                        </text>
+                      </svg>
+                    </motion.div>
+                  </div>
+                </div>
+
+                {/* Back of Flap (visible when opened) */}
+                <div
+                  className="absolute inset-0 clip-path-envelope-bottom bg-[#F9F7F2]"
+                  style={{ transform: "rotateX(180deg)", backfaceVisibility: "hidden" }}
+                >
+                  <div className="absolute inset-0 shadow-[inset_0_0_20px_rgba(0,0,0,0.05)]" />
+                </div>
               </motion.div>
 
               {!isFlapOpen && (
                 <motion.div
-                  initial={{ scale: 1, opacity: 1 }}
-                  exit={{ scale: 0.8, opacity: 0 }}
-                  transition={{ duration: 0.4 }}
+                  initial={{ opacity: 1 }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.3 }}
                   className="absolute inset-0 z-30 flex flex-col items-center justify-center cursor-pointer"
                   onClick={handleOpen}
                 >
                   <motion.div
-                    animate={{ scale: [1, 1.05, 1] }}
-                    transition={!reduceEffects ? { repeat: Infinity, duration: 3, ease: "easeInOut" } : { duration: 0 }}
-                    className="flex flex-col items-center gap-4 mt-8 md:mt-12 group"
+                    animate={{ y: [0, 5, 0] }}
+                    transition={{ repeat: Infinity, duration: 3, ease: "easeInOut" }}
+                    className="mt-48 md:mt-64"
                   >
-                    <div className="w-24 h-24 md:w-32 md:h-32 rounded-full shadow-[0_18px_50px_-18px_rgba(0,0,0,0.65)] flex items-center justify-center relative group-hover:scale-105 transition-transform duration-500 bg-paper/10 border border-white/30 p-1.5 backdrop-blur-md">
-                      <div className="absolute inset-0 rounded-full bg-gradient-to-br from-white/14 via-transparent to-umber/25 pointer-events-none" />
-                      <div className="w-full h-full rounded-full bg-gradient-to-br from-sage to-rust shadow-[inset_0_-8px_18px_rgba(0,0,0,0.28),0_8px_18px_rgba(0,0,0,0.22)] flex items-center justify-center border border-white/14 relative overflow-hidden">
-                        <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-20 h-12 bg-paper/25 blur-2xl rounded-full" />
-                        <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_35%_30%,rgba(255,255,255,0.35)_0%,transparent_55%)]" />
-                        <Heart className="relative text-paper/90 w-10 h-10 md:w-14 md:h-14 drop-shadow-md mt-1" fill="currentColor" />
-                      </div>
-                    </div>
-
-                    <motion.div
-                      animate={!reduceEffects ? { y: [0, 5, 0] } : { y: 0 }}
-                      transition={!reduceEffects ? { repeat: Infinity, duration: 2, ease: "easeInOut" } : { duration: 0 }}
-                    >
-                      <p className="serif text-white/75 tracking-[0.32em] uppercase text-[10px] md:text-xs whitespace-nowrap">
-                        Tap to break seal
-                      </p>
-                    </motion.div>
+                    <p className="serif text-zinc-400/60 tracking-[0.4em] uppercase text-[9px] md:text-[10px] whitespace-nowrap bg-white/50 px-4 py-1 rounded-full backdrop-blur-sm border border-zinc-100">
+                      Tap to open
+                    </p>
                   </motion.div>
                 </motion.div>
               )}

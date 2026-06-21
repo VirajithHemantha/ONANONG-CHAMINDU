@@ -18,16 +18,18 @@
   --font-sans: "Inter", sans-serif;
 
   /* Primary accent — drives all `sage` classes */
-  --color-sage:   #C4714A;   /* Terracotta */
+  --color-sage: #C4714A;
+  /* Terracotta */
 
   /* Background — drives all `paper` classes */
-  --color-paper:  #F5EFE0;   /* Ivory */
+  --color-paper: #F5EFE0;
+  /* Ivory */
 
   /* Extended boho palette */
-  --color-sand:   #C9B99A;
-  --color-taupe:  #9C8470;
-  --color-rust:   #A84C2C;
-  --color-umber:  #6B3D28;
+  --color-sand: #C9B99A;
+  --color-taupe: #9C8470;
+  --color-rust: #A84C2C;
+  --color-umber: #6B3D28;
   --color-sienna: #8B4513;
 }
 
@@ -102,4 +104,29 @@ body {
   background: var(--color-sage);
   opacity: 0.4;
   border-radius: 10px;
+}
+
+/* Snap Scrolling Styles */
+.snap-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100dvh;
+  width: 100%;
+}
+
+.snap-section {
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  height: 100dvh;
+  width: 100%;
+}
+
+/* Hide scrollbar for seamless story experience */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
 }
