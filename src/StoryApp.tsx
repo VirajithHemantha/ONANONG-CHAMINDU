@@ -91,10 +91,10 @@ export default function StoryApp() {
                     transition={{ delay: 0.8, duration: 1 }}
                     className="mb-8 flex flex-col items-center"
                   >
-                    <p className="script text-4xl sm:text-5xl text-[#C8B29E] drop-shadow-sm mb-3">
+                    <p className="script text-4xl sm:text-5xl text-[#3D2B1F] drop-shadow-sm mb-3">
                       Dear {guestPrefix} {guestName},
                     </p>
-                    <div className="h-px w-16 bg-[#C8B29E]/50"></div>
+                    <div className="h-px w-16 bg-[#3D2B1F]/50"></div>
                   </motion.div>
                 )}
 
