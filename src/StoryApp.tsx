@@ -135,7 +135,7 @@ export default function StoryApp() {
                   INVITE YOU TO CELEBRATE
                 </p>
                 <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#2C2C2C] mb-2 sm:mb-4">
-                  THEIR
+                  OUR
                 </p>
 
                 <h1 className="script text-7xl sm:text-[5.5rem] text-[#2C2C2C] mb-8 sm:mb-12 drop-shadow-sm font-normal">
