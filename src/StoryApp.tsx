@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { MapPin, Clock, Volume2, VolumeX } from 'lucide-react';
 import RSVPForm from './RSVPForm'; // We'll extract RSVPForm
+import WishesForm from './WishesForm';
 
 function SectionBackground() {
   return (
@@ -20,6 +21,36 @@ export default function StoryApp() {
   const [introPlayed, setIntroPlayed] = useState(false);
   const [isPlaying, setIsPlaying] = useState(false);
   const audioRef = useRef<HTMLAudioElement>(null);
+
+  const [timeLeft, setTimeLeft] = useState({
+    days: 0,
+    hours: 0,
+    minutes: 0,
+    seconds: 0
+  });
+
+  useEffect(() => {
+    const weddingDate = new Date('2026-09-28T16:45:00').getTime();
+
+    const interval = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) {
+        clearInterval(interval);
+        return;
+      }
+
+      setTimeLeft({
+        days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+        hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+        minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+        seconds: Math.floor((distance % (1000 * 60)) / 1000)
+      });
+    }, 1000);
+
+    return () => clearInterval(interval);
+  }, []);
 
   useEffect(() => {
     if (introPlayed && audioRef.current) {
@@ -54,7 +85,7 @@ export default function StoryApp() {
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
           >
             <video
-              src="/intro.mp4"
+              src="/snaptik_7626793615695777044_v3 (online-video-cutter.com).mp4"
               autoPlay
               muted
               playsInline
@@ -73,16 +104,18 @@ export default function StoryApp() {
 
       <div className="snap-container no-scrollbar bg-paper relative text-[#3D2B1F] font-sans">
 
-        {/* --- SCREEN 1: Cordially Invited --- */}
-        <section className="snap-section relative z-10 overflow-hidden">
+
+
+        {/* --- SCREEN 1: Invite Details --- */}
+        <section className="snap-section relative z-10 overflow-hidden bg-transparent">
           <SectionBackground />
           <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
             <div className="w-full my-auto flex flex-col items-center justify-center py-10">
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
                 transition={{ duration: 1 }}
-                className="w-full max-w-sm flex flex-col items-center justify-center text-center"
+                className="w-full max-w-sm flex flex-col items-center justify-center text-[#3D2B1F]"
               >
                 {guestName && (
                   <motion.div
@@ -98,33 +131,60 @@ export default function StoryApp() {
                   </motion.div>
                 )}
 
-                <h2
-                  className="serif text-[2.75rem] sm:text-6xl uppercase tracking-[0.05em] font-normal text-white mb-2"
-                  style={{
-                    WebkitTextStroke: "1px #9CA3AF",
-                    textShadow: "2px 4px 8px rgba(0,0,0,0.15)"
-                  }}
-                >
-                  YOU'RE
-                </h2>
-                <h1 className="script text-7xl sm:text-[5.5rem] text-[#2C2C2C] mb-6 font-normal drop-shadow-sm leading-none -ml-4">
-                  Cordially
+                <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#2C2C2C] mb-1">
+                  INVITE YOU TO CELEBRATE
+                </p>
+                <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#2C2C2C] mb-2 sm:mb-4">
+                  THEIR
+                </p>
+
+                <h1 className="script text-7xl sm:text-[5.5rem] text-[#2C2C2C] mb-8 sm:mb-12 drop-shadow-sm font-normal">
+                  Wedding
                 </h1>
-                <h2
-                  className="serif text-[2.75rem] sm:text-6xl uppercase tracking-[0.05em] font-normal text-white"
-                  style={{
-                    WebkitTextStroke: "1px #9CA3AF",
-                    textShadow: "2px 4px 8px rgba(0,0,0,0.15)"
-                  }}
+
+                <div className="flex flex-col items-center w-full mb-8 sm:mb-10">
+                  <p className="text-[11px] sm:text-[13px] uppercase tracking-widest text-[#2C2C2C] font-bold mb-2">SEPTEMBER</p>
+                  <div className="flex items-center justify-center w-full gap-4">
+                    <div className="flex-1 text-right border-y border-[#2C2C2C]/30 py-2">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#2C2C2C] font-bold">MONDAY</p>
+                    </div>
+                    <p className="serif text-6xl sm:text-[4.5rem] font-medium text-[#2C2C2C] leading-none px-1">28</p>
+                    <div className="flex-1 text-left border-y border-[#2C2C2C]/30 py-2">
+                      <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#2C2C2C] font-bold">AT 4:45 PM</p>
+                    </div>
+                  </div>
+                  <p className="text-[11px] sm:text-[13px] uppercase tracking-widest text-[#2C2C2C] font-bold mt-2">2026</p>
+                </div>
+
+                <a
+                  href="https://maps.app.goo.gl/RU45U8xe2TiZsmL98"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="space-y-2 mt-2 sm:mt-4 text-[#2C2C2C] hover:opacity-70 transition-opacity block"
                 >
-                  INVITED
-                </h2>
+                  <p className="text-[10px] sm:text-xs uppercase tracking-widest font-bold flex items-center justify-center gap-1.5">
+                    <MapPin size={12} className="text-[#8B7355]" />
+                    WELIGAMA BAY MARRIOTT
+                  </p>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-medium">RESORT &amp; SPA</p>
+                  <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-medium">WELIGAMA, SRI LANKA</p>
+                </a>
+
+                <div className="mt-8 sm:mt-10">
+                  <p className="text-[10px] sm:text-xs uppercase tracking-[0.15em] font-bold text-[#2C2C2C]">RECEPTION TO FOLLOW</p>
+                </div>
+
+                <div className="mt-4 sm:mt-6 flex justify-center">
+                  <svg className="w-10 h-10 text-[#2C2C2C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
+                    <path d="M15 12c-1.5-1-2-2-2-4v-4l6-2v6c0 2-.5 3-2 4M9 12c1.5-1 2-2 2-4v-4l-6-2v6c0 2 .5 3 2 4M13 12v8M11 12v8M9 20h6" />
+                    <circle cx="15.5" cy="5.5" r="0.5" fill="currentColor" />
+                    <circle cx="14" cy="7.5" r="0.5" fill="currentColor" />
+                    <circle cx="8.5" cy="5.5" r="0.5" fill="currentColor" />
+                    <circle cx="10" cy="7.5" r="0.5" fill="currentColor" />
+                  </svg>
+                </div>
               </motion.div>
             </div>
-          </div>
-
-          <div className="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce pointer-events-none z-20">
-            <svg className="w-8 h-8 text-white/80 drop-shadow-md" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" /></svg>
           </div>
         </section>
 
@@ -163,6 +223,59 @@ export default function StoryApp() {
                     <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-3 font-bold">Groom's Parents</p>
                     <p className="serif text-lg text-[#2C2C2C] leading-relaxed">Mrs. Samudra Perera</p>
                     <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; The Late Mr. Dhamadasa<br />Nanayakkara</p>
+                  </div>
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* --- SCREEN 1.75: Countdown --- */}
+        <section className="snap-section relative z-10 overflow-hidden">
+          <SectionBackground />
+          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+            <div className="w-full my-auto flex flex-col items-center justify-center py-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                className="bg-white p-10 pt-16 rounded-t-[10rem] rounded-b-[2rem] border border-[#EAE1D3] w-full max-w-sm flex flex-col items-center shadow-xl relative overflow-hidden"
+              >
+                <div className="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/dust.png')] opacity-30 pointer-events-none mix-blend-overlay" />
+
+                <div className="relative z-10 w-full flex flex-col items-center text-center">
+                  <h2 className="script text-5xl text-[#C8B29E] mb-3">Forever Begins In</h2>
+                  <h3 className="serif text-[11px] uppercase tracking-[0.3em] text-[#3D2B1F] mb-10 font-bold">A Grace-filled occasion</h3>
+
+                  <div className="flex flex-row items-center justify-center gap-6 w-full mb-8">
+                    <div className="flex flex-col items-center">
+                      <p className="serif text-4xl text-[#2C2C2C] leading-none mb-2">{timeLeft.days}</p>
+                      <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 font-bold">Days</p>
+                    </div>
+                    <div className="text-3xl text-[#C8B29E] font-light -mt-4">:</div>
+                    <div className="flex flex-col items-center">
+                      <p className="serif text-4xl text-[#2C2C2C] leading-none mb-2">{timeLeft.hours}</p>
+                      <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 font-bold">Hours</p>
+                    </div>
+                  </div>
+
+                  {/* Elegant Divider */}
+                  <div className="flex items-center justify-center gap-3 w-3/4 mx-auto mb-8">
+                    <div className="h-px bg-[#EAE1D3] flex-1"></div>
+                    <div className="w-1.5 h-1.5 rotate-45 bg-[#C8B29E]"></div>
+                    <div className="h-px bg-[#EAE1D3] flex-1"></div>
+                  </div>
+
+                  <div className="flex flex-row items-center justify-center gap-6 w-full">
+                    <div className="flex flex-col items-center">
+                      <p className="serif text-4xl text-[#2C2C2C] leading-none mb-2">{timeLeft.minutes}</p>
+                      <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 font-bold">Mins</p>
+                    </div>
+                    <div className="text-3xl text-[#C8B29E] font-light -mt-4">:</div>
+                    <div className="flex flex-col items-center">
+                      <p className="serif text-4xl text-[#2C2C2C] leading-none mb-2">{timeLeft.seconds}</p>
+                      <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 font-bold">Secs</p>
+                    </div>
                   </div>
                 </div>
               </motion.div>
@@ -269,65 +382,7 @@ export default function StoryApp() {
           </div>
         </section>
 
-        {/* --- SCREEN 3: Invite Details --- */}
-        <section className="snap-section relative z-10 overflow-hidden bg-transparent">
-          <SectionBackground />
-          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
-            <div className="w-full my-auto flex flex-col items-center justify-center py-10">
-              <motion.div
-                initial={{ opacity: 0, scale: 0.95 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                transition={{ duration: 1 }}
-                className="w-full max-w-sm flex flex-col items-center justify-center text-[#3D2B1F]"
-              >
-                <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#2C2C2C] mb-1">
-                  INVITE YOU TO CELEBRATE
-                </p>
-                <p className="text-[10px] sm:text-xs uppercase tracking-[0.2em] font-medium text-[#2C2C2C] mb-2 sm:mb-4">
-                  THEIR
-                </p>
 
-                <h1 className="script text-7xl sm:text-[5.5rem] text-[#2C2C2C] mb-8 sm:mb-12 drop-shadow-sm font-normal">
-                  Wedding
-                </h1>
-
-                <div className="flex flex-col items-center w-full mb-8 sm:mb-10">
-                  <p className="text-[11px] sm:text-[13px] uppercase tracking-widest text-[#2C2C2C] font-bold mb-2">SEPTEMBER</p>
-                  <div className="flex items-center justify-center w-full gap-4">
-                    <div className="flex-1 text-right border-y border-[#2C2C2C]/30 py-2">
-                      <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#2C2C2C] font-bold">MONDAY</p>
-                    </div>
-                    <p className="serif text-6xl sm:text-[4.5rem] font-medium text-[#2C2C2C] leading-none px-1">28</p>
-                    <div className="flex-1 text-left border-y border-[#2C2C2C]/30 py-2">
-                      <p className="text-[10px] sm:text-xs uppercase tracking-widest text-[#2C2C2C] font-bold">AT 4:40 PM</p>
-                    </div>
-                  </div>
-                  <p className="text-[11px] sm:text-[13px] uppercase tracking-widest text-[#2C2C2C] font-bold mt-2">2026</p>
-                </div>
-
-                <div className="space-y-2 mt-2 sm:mt-4 text-[#2C2C2C]">
-                  <p className="text-[10px] sm:text-xs uppercase tracking-widest font-bold">WELIGAMA BAY MARRIOTT</p>
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-medium">RESORT &amp; SPA</p>
-                  <p className="text-[9px] sm:text-[10px] uppercase tracking-[0.15em] font-medium">WELIGAMA, SRI LANKA</p>
-                </div>
-
-                <div className="mt-8 sm:mt-10">
-                  <p className="text-[10px] sm:text-xs uppercase tracking-[0.15em] font-bold text-[#2C2C2C]">RECEPTION TO FOLLOW</p>
-                </div>
-
-                <div className="mt-4 sm:mt-6 flex justify-center">
-                  <svg className="w-10 h-10 text-[#2C2C2C]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round">
-                    <path d="M15 12c-1.5-1-2-2-2-4v-4l6-2v6c0 2-.5 3-2 4M9 12c1.5-1 2-2 2-4v-4l-6-2v6c0 2 .5 3 2 4M13 12v8M11 12v8M9 20h6" />
-                    <circle cx="15.5" cy="5.5" r="0.5" fill="currentColor" />
-                    <circle cx="14" cy="7.5" r="0.5" fill="currentColor" />
-                    <circle cx="8.5" cy="5.5" r="0.5" fill="currentColor" />
-                    <circle cx="10" cy="7.5" r="0.5" fill="currentColor" />
-                  </svg>
-                </div>
-              </motion.div>
-            </div>
-          </div>
-        </section>
 
         {/* --- SCREEN 4: Timeline --- */}
         <section className="snap-section relative z-10 overflow-hidden">
@@ -353,7 +408,7 @@ export default function StoryApp() {
 
                   {[
                     { time: "4:00 PM", title: "GUESTS ARRIVE" },
-                    { time: "4:40 PM", title: "RING EXCHANGE & VOWS" },
+                    { time: "4:45 PM", title: "RING EXCHANGE & VOWS" },
                     { time: "6:00 PM", title: "COCKTAILS" },
                     { time: "7:00 PM", title: "WEDDING RECEPTION" },
                     { time: "12:00 AM", title: "CELEBRATION CONCLUDES" },
@@ -391,22 +446,19 @@ export default function StoryApp() {
                   <div className="bg-[#EAE1D3] py-2 rounded-t-xl mb-1">
                     <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8B7355]">Location</p>
                   </div>
-                  <div className="bg-white py-4 rounded-b-xl shadow-sm border border-white mb-4">
+                  <div className="bg-white py-4 rounded-b-xl shadow-sm border border-white mb-4 flex flex-col items-center">
                     <p className="text-[10px] uppercase font-bold text-[#3D2B1F]">Weligama Bay Marriott</p>
                     <p className="text-[8px] uppercase tracking-widest text-zinc-500 mt-1">Resort &amp; Spa</p>
-                    <p className="text-[8px] uppercase tracking-widest text-zinc-500">Weligama, Sri Lanka</p>
-                  </div>
-
-                  <div className="bg-[#EAE1D3] py-2 rounded-t-xl mb-1 mt-4">
-                    <p className="text-[10px] uppercase tracking-[0.2em] font-bold text-[#8B7355]">Theme</p>
-                  </div>
-                  <div className="bg-[#C8B29E] py-4 rounded-b-xl flex flex-col items-center gap-2">
-                    <div className="flex gap-2">
-                      <div className="w-6 h-6 rounded-full bg-[#F7E7CE] border border-white shadow-sm" title="Champagne" />
-                      <div className="w-6 h-6 rounded-full bg-[#FFFFF0] border border-white shadow-sm" title="Ivory" />
-                      <div className="w-6 h-6 rounded-full bg-[#D4AF37] border border-white shadow-sm" title="Gold" />
-                    </div>
-                    <p className="text-[8px] uppercase tracking-widest text-white mt-1">Champagne, Ivory &amp; Gold</p>
+                    <p className="text-[8px] uppercase tracking-widest text-zinc-500 mb-3">Weligama, Sri Lanka</p>
+                    <a
+                      href="https://maps.app.goo.gl/RU45U8xe2TiZsmL98"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-1 px-3 py-1.5 bg-[#EAE1D3] text-[#3D2B1F] rounded-full text-[8px] uppercase tracking-widest font-bold hover:bg-[#C8B29E] transition-colors"
+                    >
+                      <MapPin size={10} />
+                      Live Location
+                    </a>
                   </div>
                 </div>
               </motion.div>
@@ -441,6 +493,37 @@ export default function StoryApp() {
 
                 <div className="w-full">
                   <RSVPForm />
+                </div>
+              </motion.div>
+            </div>
+          </div>
+        </section>
+
+        {/* --- SCREEN 7: Wishes --- */}
+        <section className="snap-section relative z-10 overflow-hidden">
+          <SectionBackground />
+          <div className="absolute inset-0 overflow-y-auto no-scrollbar flex flex-col items-center p-6 text-center">
+            <div className="w-full my-auto flex flex-col items-center justify-center py-10">
+              <motion.div
+                initial={{ opacity: 0, scale: 0.95 }}
+                whileInView={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 1 }}
+                className="bg-white p-6 md:p-10 rounded-[2.5rem] border border-[#EAE1D3] w-full max-w-sm h-auto flex flex-col justify-center items-center shadow-xl"
+              >
+                <div className="flex items-center justify-center gap-3 w-[60%] mx-auto mb-6 mt-4 md:mt-0">
+                  <div className="h-px bg-zinc-300 flex-1"></div>
+                  <p className="serif text-[11px] uppercase tracking-[0.2em] font-medium text-[#2C2C2C]">GUEST BOOK</p>
+                  <div className="h-px bg-zinc-300 flex-1"></div>
+                </div>
+
+                <h3 className="script text-4xl text-[#C8B29E] mb-6">Leave a Wish</h3>
+
+                <p className="serif text-[11px] sm:text-[13px] text-[#2C2C2C] mb-8 leading-relaxed">
+                  We'd love to hear from you! Please leave your wishes, advice, or a simple hello for us.
+                </p>
+
+                <div className="w-full">
+                  <WishesForm />
                 </div>
               </motion.div>
             </div>
