@@ -222,7 +222,7 @@ export default function StoryApp() {
                   <div className="flex flex-col items-center w-full">
                     <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-3 font-bold">Groom's Parents</p>
                     <p className="serif text-lg text-[#2C2C2C] leading-relaxed">Mrs. Samudra Perera</p>
-                    <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; The Late Mr. Dharmadasa<br />Nanayakkara</p>
+                    <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; Mr. Dharmadasa<br />Nanayakkara</p>
                   </div>
                 </div>
               </motion.div>
@@ -437,15 +437,16 @@ export default function StoryApp() {
                   <div className="absolute left-1/2 top-0 bottom-0 w-px bg-zinc-300 -translate-x-1/2" />
 
                   {[
-                    { time: "4:00 PM", title: "GUESTS ARRIVE" },
-                    { time: "4:45 PM", title: "RING EXCHANGE & VOWS" },
-                    { time: "6:00 PM", title: "COCKTAILS" },
-                    { time: "7:00 PM", title: "WEDDING RECEPTION" },
-                    { time: "12:00 AM", title: "CELEBRATION CONCLUDES" },
+                    { time: "4:45 PM", title: "GUEST ARRIVAL" },
+                    { time: "5:00 PM", title: "VOWS & RING EXCHANGE", sub: "Lawn Area" },
+                    { time: "6:00 PM", title: "WEDDING RECEPTION", sub: "Ballroom" },
+                    { time: "6:30 PM", title: "COCKTAIL HOUR" },
+                    { time: "12:00 AM", title: "CELEBRATION ENDS" },
                   ].map((item, idx) => (
                     <div key={idx} className="relative z-10 bg-white/70 backdrop-blur-sm p-4 rounded-xl border border-white shadow-sm w-[85%] mx-auto">
                       <p className="text-[11px] font-bold text-[#8B7355] mb-1">{item.time}</p>
                       <p className="text-[10px] uppercase tracking-widest text-[#3D2B1F] font-semibold">{item.title}</p>
+                      {item.sub && <p className="serif text-[10px] italic text-zinc-500 mt-1">{item.sub}</p>}
                     </div>
                   ))}
                 </div>
