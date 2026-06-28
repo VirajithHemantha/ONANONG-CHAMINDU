@@ -204,7 +204,7 @@ export default function StoryApp() {
 
                 <div className="relative z-10 w-full flex flex-col items-center text-center">
                   <h2 className="script text-5xl text-[#C8B29E] mb-3">Together with</h2>
-                  <h3 className="serif text-[11px] uppercase tracking-[0.3em] text-[#3D2B1F] mb-10 font-bold">Their Families</h3>
+                  <h3 className="serif text-[11px] uppercase tracking-[0.3em] text-[#3D2B1F] mb-10 font-bold">Our Families</h3>
 
                   <div className="flex flex-col items-center w-full mb-8">
                     <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-3 font-bold">Bride's Parents</p>
