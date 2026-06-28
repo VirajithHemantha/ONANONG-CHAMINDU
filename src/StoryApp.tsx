@@ -222,7 +222,7 @@ export default function StoryApp() {
                   <div className="flex flex-col items-center w-full">
                     <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-3 font-bold">Groom's Parents</p>
                     <p className="serif text-lg text-[#2C2C2C] leading-relaxed">Mrs. Samudra Perera</p>
-                    <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; The Late Mr. Dhamadasa<br />Nanayakkara</p>
+                    <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; The Late Mr. Dharmadasa<br />Nanayakkara</p>
                   </div>
                 </div>
               </motion.div>
@@ -325,7 +325,7 @@ export default function StoryApp() {
             {/* Header Image */}
             <div className="w-full h-[45dvh] relative shrink-0">
               <img
-                src="/WhatsApp Image 2026-06-21 at 19.30.37.jpeg"
+                src="/PRE/WhatsApp Image 2026-06-28 at 21.19.46.jpeg"
                 alt="Couple Story 1"
                 className="w-full h-full object-cover rounded-b-[2.5rem] shadow-sm"
               />
@@ -355,9 +355,9 @@ export default function StoryApp() {
                 <div className="py-8 flex justify-center">
                   <div className="w-full h-72 rounded-[2rem] overflow-hidden shadow-xl border-4 border-white/60">
                     <img
-                      src="/WhatsApp Image 2026-06-21 at 19.30.37 (1).jpeg"
+                      src="/PRE/WhatsApp Image 2026-06-28 at 21.19.46 (1).jpeg"
                       alt="Couple Story 2"
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-top"
                     />
                   </div>
                 </div>
@@ -365,9 +365,39 @@ export default function StoryApp() {
                 <p>
                   From meeting each other’s families to creating unforgettable memories across different corners of the world, every step has led us to this moment. Today, we are filled with gratitude for the path we have walked together and excited for the future that awaits us.
                 </p>
-                <p>
+
+                <div className="py-8 md:py-12 relative w-full h-[280px] md:h-[360px] flex justify-center px-1">
+                  <motion.div 
+                    initial={{ opacity: 0, x: -30, rotate: -10 }}
+                    whileInView={{ opacity: 1, x: 0, rotate: -5 }}
+                    transition={{ duration: 0.8, type: "spring" }}
+                    className="absolute left-0 top-0 w-[58%] md:w-[65%] h-52 md:h-64 rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] border-[4px] md:border-[6px] border-white z-10 hover:z-30 hover:rotate-[-2deg] hover:scale-105 transition-all duration-300"
+                  >
+                    <img
+                      src="/PRE/WhatsApp Image 2026-06-28 at 21.19.46 (2).jpeg"
+                      alt="Couple Story Collage 1"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </motion.div>
+                  
+                  <motion.div 
+                    initial={{ opacity: 0, x: 30, rotate: 10 }}
+                    whileInView={{ opacity: 1, x: 0, rotate: 5 }}
+                    transition={{ duration: 0.8, delay: 0.2, type: "spring" }}
+                    className="absolute right-0 top-12 md:top-16 w-[58%] md:w-[65%] h-52 md:h-64 rounded-2xl md:rounded-3xl overflow-hidden shadow-[0_20px_40px_-15px_rgba(0,0,0,0.3)] border-[4px] md:border-[6px] border-white z-20 hover:z-30 hover:rotate-[2deg] hover:scale-105 transition-all duration-300"
+                  >
+                    <img
+                      src="/PRE/WhatsApp Image 2026-06-28 at 21.19.47.jpeg"
+                      alt="Couple Story Collage 2"
+                      className="w-full h-full object-cover object-top"
+                    />
+                  </motion.div>
+                </div>
+
+                <p className="mt-2">
                   Together, we have chosen to turn our forever dream into reality.
                 </p>
+
                 <p className="text-[#3D2B1F] font-medium text-center italic mt-8 text-[14px]">
                   With love in our hearts and joy beyond words, we invite you to celebrate the beginning of our next chapter as we say “I do” and start our forever together.
                 </p>

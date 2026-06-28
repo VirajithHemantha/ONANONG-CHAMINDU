@@ -1378,13 +1378,54 @@ export default function App() {
 
                   <div className="w-full max-w-sm space-y-4 md:space-y-6 text-left">
                     <div className="flex items-start gap-2 md:gap-4">
-                      <span className="serif text-sage font-bold text-[10px] md:text-base w-12 md:w-20 text-right shrink-0 pt-1">7:45 PM</span>
+                      <span className="serif text-sage font-bold text-[10px] md:text-base w-12 md:w-20 text-right shrink-0 pt-1">4:45 PM</span>
                       <div className="w-px h-full bg-sage/30 relative mt-2 -ml-[1px] md:-ml-2 shrink-0">
                         <div className="absolute top-0 -left-[3px] w-2 h-2 rounded-full bg-sage" />
                       </div>
                       <div>
-                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Nikkah Ceremony</p>
-                        <p className="serif text-[10px] md:text-xs italic text-zinc-500">Followed by Dinner</p>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Guest Arrival</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2 md:gap-4">
+                      <span className="serif text-sage font-bold text-[10px] md:text-base w-12 md:w-20 text-right shrink-0 pt-1">5:00 PM</span>
+                      <div className="w-px h-full bg-sage/30 relative mt-2 -ml-[1px] md:-ml-2 shrink-0">
+                        <div className="absolute top-0 -left-[3px] w-2 h-2 rounded-full bg-sage" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Vows & Ring Exchange</p>
+                        <p className="serif text-[10px] md:text-xs italic text-zinc-500">Lawn Area</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2 md:gap-4">
+                      <span className="serif text-sage font-bold text-[10px] md:text-base w-12 md:w-20 text-right shrink-0 pt-1">6:00 PM</span>
+                      <div className="w-px h-full bg-sage/30 relative mt-2 -ml-[1px] md:-ml-2 shrink-0">
+                        <div className="absolute top-0 -left-[3px] w-2 h-2 rounded-full bg-sage" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Wedding Reception</p>
+                        <p className="serif text-[10px] md:text-xs italic text-zinc-500">Ballroom</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2 md:gap-4">
+                      <span className="serif text-sage font-bold text-[10px] md:text-base w-12 md:w-20 text-right shrink-0 pt-1">6:30 PM</span>
+                      <div className="w-px h-full bg-sage/30 relative mt-2 -ml-[1px] md:-ml-2 shrink-0">
+                        <div className="absolute top-0 -left-[3px] w-2 h-2 rounded-full bg-sage" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Cocktail Hour</p>
+                      </div>
+                    </div>
+
+                    <div className="flex items-start gap-2 md:gap-4">
+                      <span className="serif text-sage font-bold text-[10px] md:text-base w-12 md:w-20 text-right shrink-0 pt-1">12:00 AM</span>
+                      <div className="w-px h-full bg-sage/30 relative mt-2 -ml-[1px] md:-ml-2 shrink-0">
+                        <div className="absolute top-0 -left-[3px] w-2 h-2 rounded-full bg-sage" />
+                      </div>
+                      <div>
+                        <p className="text-[10px] md:text-xs font-bold uppercase tracking-wider">Celebration Ends</p>
                       </div>
                     </div>
                   </div>
