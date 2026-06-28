@@ -222,7 +222,7 @@ export default function StoryApp() {
                   <div className="flex flex-col items-center w-full">
                     <p className="text-[9px] uppercase tracking-[0.2em] text-zinc-400 mb-3 font-bold">Groom's Parents</p>
                     <p className="serif text-lg text-[#2C2C2C] leading-relaxed">Mrs. Samudra Perera</p>
-                    <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; Mr. Dharmadasa<br />Nanayakkara (late)</p>
+                    <p className="serif text-[17px] text-[#2C2C2C] leading-relaxed">&amp; The Late Mr. Dharmadasa<br />Nanayakkara</p>
                   </div>
                 </div>
               </motion.div>
