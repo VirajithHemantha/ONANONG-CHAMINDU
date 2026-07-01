@@ -92,21 +92,7 @@ export default function StoryApp() {
               onEnded={() => setIntroPlayed(true)}
               className="w-full h-full object-cover"
             />
-            <motion.div
-              initial={{ x: 0 }}
-              animate={{ x: '100vw' }}
-              transition={{ delay: 1.5, duration: 4.5, ease: 'easeInOut' }}
-              className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
-            >
-              <div className="relative flex items-center justify-center">
-                <img 
-                  src="/ChatGPT Image Jul 1, 2026, 07_49_34 PM.png" 
-                  alt="Gold Seal" 
-                  className="w-32 h-32 sm:w-40 sm:h-40 object-contain drop-shadow-2xl"
-                  style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))' }}
-                />
-              </div>
-            </motion.div>
+
 
           </motion.div>
         )}
