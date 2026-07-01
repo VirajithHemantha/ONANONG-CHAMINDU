@@ -89,8 +89,9 @@ export default function StoryApp() {
               autoPlay
               muted
               playsInline
+              controls={false}
               onEnded={() => setIntroPlayed(true)}
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover pointer-events-none"
             />
 
 
