@@ -93,25 +93,22 @@ export default function StoryApp() {
               onEnded={() => setIntroPlayed(true)}
               className="w-full h-full object-cover pointer-events-none"
             />
-            <div
+            <motion.div
+              initial={{ x: 0, rotateY: 0, scale: 1 }}
+              animate={{ x: '100vw', rotateY: 45, scale: 1.1 }}
+              transition={{ delay: 1.5, duration: 4.5, ease: 'easeInOut' }}
               className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
-              style={{ perspective: '1200px' }}
+              style={{ perspective: '1000px' }}
             >
-              <motion.div
-                initial={{ rotateY: 0, x: 0, scale: 1, opacity: 1 }}
-                animate={{ rotateY: 140, x: '80vw', scale: 1.1, opacity: 1 }}
-                transition={{ delay: 1.5, duration: 7, ease: 'easeOut' }}
-                className="relative flex items-center justify-center"
-                style={{ transformStyle: 'preserve-3d', transformOrigin: 'right center' }}
-              >
+              <div className="relative flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
                 <img 
                   src="/ChatGPT Image Jul 1, 2026, 07_49_34 PM.png" 
                   alt="Gold Seal" 
                   className="w-32 h-32 sm:w-80 sm:h-80 object-contain drop-shadow-2xl"
                   style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))', transform: 'translateZ(20px)' }}
                 />
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
             <button
               onClick={() => setIntroPlayed(true)}
               className="absolute bottom-10 px-6 py-2 bg-black/40 backdrop-blur-md text-white/90 rounded-full border border-white/20 text-xs tracking-[0.2em] uppercase transition-all hover:bg-white/20"
