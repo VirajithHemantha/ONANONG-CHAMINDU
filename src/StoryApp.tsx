@@ -100,7 +100,7 @@ export default function StoryApp() {
               <motion.div
                 initial={{ rotateY: 0, x: 0, scale: 1, opacity: 1 }}
                 animate={{ rotateY: 140, x: '80vw', scale: 1.1, opacity: 1 }}
-                transition={{ delay: 1.5, duration: 4.5, ease: 'easeInOut' }}
+                transition={{ delay: 1.5, duration: 7, ease: 'easeOut' }}
                 className="relative flex items-center justify-center"
                 style={{ transformStyle: 'preserve-3d', transformOrigin: 'right center' }}
               >
