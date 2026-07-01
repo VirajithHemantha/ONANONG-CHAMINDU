@@ -85,7 +85,7 @@ export default function StoryApp() {
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
           >
             <video
-              src="/snaptik_7626793615695777044_v3 (online-video-cutter.com).mp4"
+              src="/in.mp4"
               autoPlay
               muted
               playsInline
