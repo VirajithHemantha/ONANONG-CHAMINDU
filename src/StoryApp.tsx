@@ -85,7 +85,7 @@ export default function StoryApp() {
             className="fixed inset-0 z-[100] bg-black flex items-center justify-center"
           >
             <video
-              src="/snaptik_7626793615695777044_v3 (online-video-cutter.com).mp4"
+              src="/WhatsApp Video 2026-07-02 at 00.31.44.mp4"
               autoPlay
               muted
               playsInline
@@ -93,23 +93,13 @@ export default function StoryApp() {
               onEnded={() => setIntroPlayed(true)}
               className="w-full h-full object-cover pointer-events-none"
             />
-            <motion.div
-              initial={{ x: 0, rotateY: 0, scale: 1 }}
-              animate={{ x: '100vw', rotateY: 45, scale: 1.1 }}
-              transition={{ delay: 1.5, duration: 4.5, ease: 'easeInOut' }}
-              className="absolute inset-0 flex items-center justify-center z-50 pointer-events-none"
-              style={{ perspective: '1000px' }}
-            >
-              <div className="relative flex items-center justify-center" style={{ transformStyle: 'preserve-3d' }}>
-                <img 
-                  src="/ChatGPT Image Jul 1, 2026, 07_49_34 PM.png" 
-                  alt="Gold Seal" 
-                  className="w-32 h-32 sm:w-80 sm:h-80 object-contain drop-shadow-2xl"
-                  style={{ filter: 'drop-shadow(0 10px 15px rgba(0,0,0,0.5))', transform: 'translateZ(20px)' }}
-                />
-              </div>
-            </motion.div>
 
+            <button
+              onClick={() => setIntroPlayed(true)}
+              className="absolute bottom-10 px-6 py-2 bg-black/40 backdrop-blur-md text-white/90 rounded-full border border-white/20 text-xs tracking-[0.2em] uppercase transition-all hover:bg-white/20"
+            >
+              Skip Intro
+            </button>
           </motion.div>
         )}
       </AnimatePresence>
