@@ -107,12 +107,7 @@ export default function StoryApp() {
                 />
               </div>
             </motion.div>
-            <button
-              onClick={() => setIntroPlayed(true)}
-              className="absolute bottom-10 px-6 py-2 bg-black/40 backdrop-blur-md text-white/90 rounded-full border border-white/20 text-xs tracking-[0.2em] uppercase transition-all hover:bg-white/20"
-            >
-              Skip Intro
-            </button>
+
           </motion.div>
         )}
       </AnimatePresence>
