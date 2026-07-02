@@ -58,6 +58,25 @@ export default function StoryApp() {
     }
   }, [introPlayed]);
 
+  // Attempt to recover audio playback on first user interaction if it was blocked
+  useEffect(() => {
+    const handleInteraction = () => {
+      if (introPlayed && audioRef.current && !isPlaying) {
+        audioRef.current.play().then(() => setIsPlaying(true)).catch(() => {});
+      }
+    };
+    
+    document.addEventListener('click', handleInteraction, { once: true });
+    document.addEventListener('touchstart', handleInteraction, { once: true });
+    document.addEventListener('scroll', handleInteraction, { once: true });
+    
+    return () => {
+      document.removeEventListener('click', handleInteraction);
+      document.removeEventListener('touchstart', handleInteraction);
+      document.removeEventListener('scroll', handleInteraction);
+    };
+  }, [introPlayed, isPlaying]);
+
   const togglePlay = () => {
     if (audioRef.current) {
       if (isPlaying) {
@@ -569,6 +588,7 @@ export default function StoryApp() {
       <audio
         ref={audioRef}
         src="/Teddy Swims - You're Still The One (Shania Twain Cover).mp3"
+        loop
       />
       <button
         onClick={togglePlay}
