@@ -569,7 +569,6 @@ export default function StoryApp() {
       <audio
         ref={audioRef}
         src="/Teddy Swims - You're Still The One (Shania Twain Cover).mp3"
-        loop
       />
       <button
         onClick={togglePlay}

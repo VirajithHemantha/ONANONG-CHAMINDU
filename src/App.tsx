@@ -508,7 +508,7 @@ export default function App() {
     <div
       className="min-h-screen bg-paper text-zinc-800 selection:bg-sage/20 overflow-x-hidden relative"
     >
-      <audio ref={audioRef} src="/song.mp3" loop preload="auto" />
+      <audio ref={audioRef} src="/song.mp3" preload="auto" />
 
       <motion.div className="fixed top-0 left-0 right-0 h-1 bg-sage origin-left z-[1000]" style={{ scaleX }} />
 
